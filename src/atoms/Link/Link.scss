@@ -1,0 +1,60 @@
+@use '../../styles/mixins' as m;
+
+.ds-link {
+  font-family: var(--ds-font-sans);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  border-radius: var(--ds-radius-xs);
+  transition: color var(--ds-duration-fast) var(--ds-ease);
+
+  &:focus-visible {
+    @include m.focus-ring(2px);
+  }
+
+  &--brand {
+    color: var(--ds-brand-600);
+
+    &:hover {
+      color: var(--ds-brand-700);
+    }
+  }
+
+  &--neutral {
+    color: var(--ds-color-text);
+
+    &:hover {
+      color: var(--ds-brand-600);
+    }
+  }
+
+  &--underline-always {
+    text-decoration: underline;
+  }
+
+  &--underline-hover {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--underline-none {
+    text-decoration: none;
+  }
+
+  &__icon {
+    margin-left: 0.25rem;
+    opacity: 0.8;
+  }
+}
+
+[data-theme='dark'] {
+  .ds-link--brand {
+    color: var(--ds-brand-300);
+
+    &:hover {
+      color: var(--ds-brand-200);
+    }
+  }
+}

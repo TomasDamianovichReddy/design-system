@@ -1,0 +1,107 @@
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: var(--ds-radius-full);
+  font-family: var(--ds-font-sans);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1.5;
+  white-space: nowrap;
+
+  &--sm {
+    padding: 0.0625rem 0.5rem;
+    font-size: var(--ds-text-xs);
+  }
+
+  &--md {
+    padding: 0.125rem 0.625rem;
+    font-size: var(--ds-text-sm);
+  }
+
+  &--neutral {
+    --ds-badge-color: var(--ds-color-text-muted);
+    --ds-badge-bg: var(--ds-color-bg-subtle);
+    --ds-badge-text: var(--ds-color-text-muted);
+    --ds-badge-border: var(--ds-color-border-strong);
+  }
+
+  &--brand {
+    --ds-badge-color: var(--ds-brand-600);
+    --ds-badge-bg: var(--ds-brand-50);
+    --ds-badge-text: var(--ds-brand-700);
+    --ds-badge-border: var(--ds-brand-200);
+  }
+
+  &--success {
+    --ds-badge-color: var(--ds-success-500);
+    --ds-badge-bg: var(--ds-success-50);
+    --ds-badge-text: var(--ds-success-700);
+    --ds-badge-border: color-mix(in srgb, var(--ds-success-500) 35%, transparent);
+  }
+
+  &--warning {
+    --ds-badge-color: var(--ds-warning-500);
+    --ds-badge-bg: var(--ds-warning-50);
+    --ds-badge-text: var(--ds-warning-700);
+    --ds-badge-border: color-mix(in srgb, var(--ds-warning-500) 35%, transparent);
+  }
+
+  &--danger {
+    --ds-badge-color: var(--ds-danger-500);
+    --ds-badge-bg: var(--ds-danger-50);
+    --ds-badge-text: var(--ds-danger-700);
+    --ds-badge-border: color-mix(in srgb, var(--ds-danger-500) 35%, transparent);
+  }
+
+  &--info {
+    --ds-badge-color: var(--ds-info-500);
+    --ds-badge-bg: var(--ds-info-50);
+    --ds-badge-text: var(--ds-info-700);
+    --ds-badge-border: color-mix(in srgb, var(--ds-info-500) 35%, transparent);
+  }
+
+  &--soft {
+    color: var(--ds-badge-text);
+    background-color: var(--ds-badge-bg);
+  }
+
+  &--solid {
+    color: #ffffff;
+    background-color: var(--ds-badge-color);
+  }
+
+  &--outline {
+    color: var(--ds-badge-text);
+    background-color: transparent;
+    border: 1px solid var(--ds-badge-border);
+  }
+
+  &__dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: var(--ds-radius-full);
+    background-color: currentColor;
+  }
+}
+
+[data-theme='dark'] {
+  .ds-badge--brand {
+    --ds-badge-text: var(--ds-brand-300);
+  }
+
+  .ds-badge--success {
+    --ds-badge-text: color-mix(in srgb, var(--ds-success-500) 65%, white);
+  }
+
+  .ds-badge--warning {
+    --ds-badge-text: color-mix(in srgb, var(--ds-warning-500) 65%, white);
+  }
+
+  .ds-badge--danger {
+    --ds-badge-text: color-mix(in srgb, var(--ds-danger-500) 65%, white);
+  }
+
+  .ds-badge--info {
+    --ds-badge-text: color-mix(in srgb, var(--ds-info-500) 65%, white);
+  }
+}

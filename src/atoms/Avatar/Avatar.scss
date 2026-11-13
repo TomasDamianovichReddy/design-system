@@ -1,0 +1,62 @@
+.ds-avatar {
+  --ds-avatar-size: 2.5rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--ds-avatar-size);
+  height: var(--ds-avatar-size);
+  overflow: hidden;
+  color: var(--ds-brand-700);
+  background-color: var(--ds-brand-100);
+  font-family: var(--ds-font-sans);
+  font-size: calc(var(--ds-avatar-size) * 0.36);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1;
+  user-select: none;
+
+  &--sm {
+    --ds-avatar-size: 1.75rem;
+  }
+
+  &--md {
+    --ds-avatar-size: 2.5rem;
+  }
+
+  &--lg {
+    --ds-avatar-size: 3.5rem;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  &--rounded {
+    border-radius: var(--ds-radius-md);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__fallback {
+    width: 55%;
+    height: 55%;
+  }
+}
+
+[data-theme='dark'] .ds-avatar {
+  color: var(--ds-brand-200);
+  background-color: var(--ds-brand-100);
+}

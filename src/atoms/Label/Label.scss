@@ -1,0 +1,31 @@
+.ds-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--ds-space-1);
+  font-family: var(--ds-font-sans);
+  font-weight: var(--ds-weight-medium);
+  color: var(--ds-color-text);
+  line-height: var(--ds-leading-normal);
+  cursor: default;
+
+  &--sm {
+    font-size: var(--ds-text-sm);
+  }
+
+  &--md {
+    font-size: var(--ds-text-sm);
+  }
+
+  &--lg {
+    font-size: var(--ds-text-md);
+  }
+
+  &__required {
+    color: var(--ds-danger-500);
+  }
+
+  &__optional {
+    font-weight: var(--ds-weight-regular);
+    color: var(--ds-color-text-muted);
+  }
+}

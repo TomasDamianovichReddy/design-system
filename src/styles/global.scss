@@ -1,0 +1,32 @@
+@use './tokens';
+@use './mixins' as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.ds-sr-only {
+  @include m.visually-hidden;
+}
+
+.ds-text-truncate {
+  @include m.truncate;
+}
+
+// Minimal base so components look right out of the box. Consumers can override.
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+}
+
+:where(body) {
+  margin: 0;
+  font-family: var(--ds-font-sans);
+  font-size: var(--ds-text-md);
+  line-height: var(--ds-leading-normal);
+  color: var(--ds-color-text);
+  background-color: var(--ds-color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,57 @@
+@use '../../styles/mixins' as m;
+
+.ds-pagination {
+  font-family: var(--ds-font-sans);
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 var(--ds-space-1);
+    font-family: inherit;
+    font-size: var(--ds-text-sm);
+    font-weight: var(--ds-weight-medium);
+    color: var(--ds-color-text);
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--ds-radius-md);
+    cursor: pointer;
+    transition:
+      background-color var(--ds-duration-fast) var(--ds-ease),
+      border-color var(--ds-duration-fast) var(--ds-ease);
+
+    &:hover:not(.ds-pagination__page--active) {
+      background-color: var(--ds-color-bg-subtle);
+    }
+
+    &:focus-visible {
+      @include m.focus-ring();
+    }
+
+    &--active {
+      color: #ffffff;
+      background-color: var(--ds-brand-600);
+      border-color: var(--ds-brand-600);
+    }
+  }
+
+  &__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    color: var(--ds-color-text-subtle);
+    user-select: none;
+  }
+}

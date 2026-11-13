@@ -1,0 +1,103 @@
+@use '../../styles/mixins' as m;
+
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-md);
+  font-family: var(--ds-font-sans);
+  font-weight: var(--ds-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease),
+    border-color var(--ds-duration-fast) var(--ds-ease),
+    color var(--ds-duration-fast) var(--ds-ease),
+    box-shadow var(--ds-duration-fast) var(--ds-ease);
+
+  &:focus-visible {
+    @include m.focus-ring();
+  }
+
+  &:disabled {
+    @include m.disabled;
+  }
+
+  &--sm {
+    min-height: 2rem;
+    padding: 0 var(--ds-space-3);
+    font-size: var(--ds-text-sm);
+  }
+
+  &--md {
+    min-height: 2.5rem;
+    padding: 0 var(--ds-space-4);
+    font-size: var(--ds-text-sm);
+  }
+
+  &--lg {
+    min-height: 3rem;
+    padding: 0 var(--ds-space-5);
+    font-size: var(--ds-text-md);
+  }
+
+  &--block {
+    display: flex;
+    width: 100%;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__label {
+    display: inline-block;
+  }
+
+  &__spinner {
+    color: currentColor;
+  }
+
+  &--primary {
+    color: #ffffff;
+    background-color: var(--ds-brand-600);
+
+    &:hover:not(:disabled) {
+      background-color: var(--ds-brand-700);
+    }
+  }
+
+  &--secondary {
+    color: var(--ds-color-text);
+    background-color: var(--ds-color-surface);
+    border-color: var(--ds-color-border-strong);
+
+    &:hover:not(:disabled) {
+      background-color: var(--ds-color-bg-subtle);
+    }
+  }
+
+  &--ghost {
+    color: var(--ds-color-text);
+    background-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: var(--ds-color-bg-subtle);
+    }
+  }
+
+  &--danger {
+    color: #ffffff;
+    background-color: var(--ds-danger-500);
+
+    &:hover:not(:disabled) {
+      background-color: var(--ds-danger-700);
+    }
+  }
+}

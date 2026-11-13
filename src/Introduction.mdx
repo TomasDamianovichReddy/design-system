@@ -1,0 +1,86 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# @tdamianovich/design-system
+
+An atomic design system for React, written in TypeScript and Sass. It ships accessible
+atoms, molecules and organisms that can be consumed as a plain npm package.
+
+## Install
+
+```bash
+pnpm add @tdamianovich/design-system
+# or
+npm install @tdamianovich/design-system
+```
+
+React and React DOM are peer dependencies (`>=18`).
+
+## Use
+
+Import the stylesheet once, then use any component:
+
+```tsx
+import '@tdamianovich/design-system/styles.css'
+import { Button, Card, Text } from '@tdamianovich/design-system'
+
+export function Example() {
+  return (
+    <Card header="Hello">
+      <Text tone="muted">This card comes from the design system.</Text>
+      <Button>Get started</Button>
+    </Card>
+  )
+}
+```
+
+## Theming
+
+All design decisions are CSS custom properties prefixed with `--ds-`. Override them on
+`:root`, or scope them to a container:
+
+```css
+:root {
+  --ds-brand-600: #0f766e;
+  --ds-brand-700: #115e59;
+  --ds-radius-md: 0.25rem;
+}
+```
+
+Dark mode ships as a data attribute:
+
+```html
+<div data-theme="dark">…</div>
+```
+
+Use the toolbar paintbrush in Storybook to switch themes while browsing stories.
+
+## Structure
+
+| Layer | Examples |
+| --- | --- |
+| Atoms | Button, Input, Badge, Avatar, Icon, Spinner, Text |
+| Molecules | FormField, Alert, Card, Pagination, SearchInput, Stat |
+| Organisms | Header, Footer, Sidebar, DataTable, Modal, Accordion, Tabs |
+
+Every component forwards refs where it renders a single DOM element, accepts native
+attributes and composes `className` instead of replacing it.
+
+## Accessibility
+
+- Controls use native elements (`button`, `input`, `select`, `textarea`).
+- Focus is always visible and uses `--ds-color-focus`.
+- Modal traps focus and restores it on close; Escape closes it.
+- Tabs implement the roving tabindex pattern with Arrow/Home/End keys.
+- Tables expose `aria-sort` when columns are sortable.
+
+## Scripts
+
+```bash
+pnpm dev              # Storybook on http://localhost:6006
+pnpm test             # Vitest + Testing Library
+pnpm build            # ESM + CJS + d.ts + styles.css
+pnpm pack:check       # build, publint and npm pack --dry-run
+pnpm build:storybook  # static Storybook in storybook-static/
+```

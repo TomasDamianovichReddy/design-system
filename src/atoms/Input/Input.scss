@@ -1,0 +1,34 @@
+@use '../../styles/mixins' as m;
+
+.ds-input {
+  @include m.control-base;
+
+  display: block;
+  width: 100%;
+
+  &--sm {
+    min-height: 2rem;
+    padding: 0 var(--ds-space-2);
+    font-size: var(--ds-text-sm);
+  }
+
+  &--md {
+    min-height: 2.5rem;
+    padding: 0 var(--ds-space-3);
+    font-size: var(--ds-text-sm);
+  }
+
+  &--lg {
+    min-height: 3rem;
+    padding: 0 var(--ds-space-4);
+    font-size: var(--ds-text-md);
+  }
+
+  &--invalid {
+    border-color: var(--ds-danger-500);
+
+    &:focus-visible {
+      outline-color: var(--ds-danger-500);
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.ds-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ds-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ds-space-4);
+  background-color: var(--ds-color-overlay);
+  animation: ds-modal-fade var(--ds-duration-base) var(--ds-ease);
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(100vh - 2 * var(--ds-space-4));
+    overflow: hidden;
+    font-family: var(--ds-font-sans);
+    color: var(--ds-color-text);
+    background-color: var(--ds-color-surface-raised);
+    border-radius: var(--ds-radius-lg);
+    box-shadow: var(--ds-shadow-lg);
+    animation: ds-modal-in var(--ds-duration-base) var(--ds-ease);
+
+    &:focus {
+      outline: none;
+    }
+
+    &--sm {
+      max-width: 24rem;
+    }
+
+    &--md {
+      max-width: 32rem;
+    }
+
+    &--lg {
+      max-width: 48rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--ds-space-4);
+    padding: var(--ds-space-5) var(--ds-space-5) var(--ds-space-3);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--ds-text-lg);
+    font-weight: var(--ds-weight-semibold);
+    line-height: var(--ds-leading-tight);
+  }
+
+  &__body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 var(--ds-space-5) var(--ds-space-5);
+    font-size: var(--ds-text-sm);
+    line-height: var(--ds-leading-relaxed);
+    color: var(--ds-color-text-muted);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--ds-space-2);
+    padding: var(--ds-space-4) var(--ds-space-5);
+    background-color: var(--ds-color-bg-subtle);
+    border-top: 1px solid var(--ds-color-border);
+  }
+}
+
+@keyframes ds-modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ds-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-modal,
+  .ds-modal__panel {
+    animation: none;
+  }
+}

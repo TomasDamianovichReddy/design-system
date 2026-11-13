@@ -1,0 +1,63 @@
+@mixin focus-ring($offset: 2px) {
+  outline: 2px solid var(--ds-color-focus);
+  outline-offset: $offset;
+}
+
+@mixin focus-ring-inset {
+  outline: 2px solid var(--ds-color-focus);
+  outline-offset: -2px;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@mixin control-base {
+  font-family: var(--ds-font-sans);
+  font-size: var(--ds-text-md);
+  line-height: var(--ds-leading-normal);
+  color: var(--ds-color-text);
+  background-color: var(--ds-color-surface);
+  border: 1px solid var(--ds-color-border-strong);
+  border-radius: var(--ds-radius-md);
+  transition:
+    border-color var(--ds-duration-fast) var(--ds-ease),
+    box-shadow var(--ds-duration-fast) var(--ds-ease);
+
+  &::placeholder {
+    color: var(--ds-color-text-subtle);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--ds-color-text-subtle);
+  }
+
+  &:focus-visible {
+    @include focus-ring(0);
+    border-color: var(--ds-color-focus);
+  }
+
+  &:disabled {
+    @include disabled;
+    background-color: var(--ds-color-bg-subtle);
+  }
+}
